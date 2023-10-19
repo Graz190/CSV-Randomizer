@@ -1,0 +1,87 @@
+﻿using CSV_Randomizer.Views;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Documents;
+using System.Windows.Shapes;
+
+namespace CSV_Randomizer.Utils
+{
+    internal class Randomizer
+    {
+        RandomizerHome RandomizerHome { get; set; }
+        static Random rnd = new Random();
+        public Randomizer(RandomizerHome home) {
+            RandomizerHome = home;
+        }
+
+        public List<String> loadCSV()
+        {
+            List<String> list = new List<String>();
+            try { 
+            var reader = new StreamReader(File.OpenRead(PropertySetting.Read_Setting(Settingname.FilePath)));
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+                list.Add(values[0]);
+            }
+            }catch(Exception ex)
+            {
+                RandomizerHome.Dispatcher.Invoke(() =>
+                {
+                    RandomizerHome.showMessage(ColorText.error, ex.Message);
+                });
+            }
+            return list;
+        }
+        public List<String> chooseRandom(int percent)
+        {
+            double choosedPercent = (double)percent / 100;
+            List<String> csvList = loadCSV();
+            List<String> randomList = new List<String>();
+            int listSize = csvList.Count;
+            int cycleCount = (int)Math.Round((double)(choosedPercent * listSize - 1));
+
+            for (int i = 0; i <= cycleCount; i++)
+            {
+                int r = 0;
+                while (r == 0)
+                    r = rnd.Next(csvList.Count - 1);
+                randomList.Add(csvList[r]);
+                csvList.Remove(csvList[r]);
+            }
+            return randomList;
+        }
+        public void writeCSV(String path, List<String> listString)
+        {
+            try
+            {
+                using (var file = File.CreateText(path))
+                {
+                    foreach (var arr in listString)
+                    {
+                        if (String.IsNullOrEmpty(arr)) continue;
+                        file.Write(arr[0]);
+                        for (int i = 1; i < arr.Length; i++)
+                        {
+                            file.Write(',');
+                            file.Write(arr[i]);
+                        }
+                        file.WriteLine();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                RandomizerHome.Dispatcher.Invoke(() =>
+                {
+                    RandomizerHome.showMessage(ColorText.error, ex.Message);
+                });
+            }
+        }
+    }
+}
