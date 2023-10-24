@@ -81,14 +81,16 @@ namespace CSV_Randomizer.Views
             showMessage(ColorText.success, "Programm hat " + ListBox.Items.Count + " zufällig ausgewählt");
         }
         private void Worker1_DoWork(object sender, DoWorkEventArgs e)
-        { 
+        {
+            int percentValue=0;
             Dispatcher.Invoke(() =>
             {
                 ListBox.Items.Clear();
                 showMessage(ColorText.loading, "Bitte warten Programm wählt zufällig eine Zahl aus");
             });
+            percentValue = int.Parse(PropertySetting.Read_Setting(Settingname.SliderValue));
             printList.Clear();
-            printList = rand.chooseRandom(10);
+            printList = rand.chooseRandom(percentValue);
             foreach (String temp in printList)
             {
                 Dispatcher.Invoke(() =>
@@ -112,7 +114,7 @@ namespace CSV_Randomizer.Views
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            PropertySetting.Save_Setting(Settingname.SliderValue,SliderValue.Value.ToString());
         }
     }
 }
