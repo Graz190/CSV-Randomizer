@@ -25,6 +25,7 @@ namespace CSV_Randomizer.Views
     public partial class RandomizerHome : Page
     {
         private readonly BackgroundWorker worker1 = new BackgroundWorker();
+        private readonly BackgroundWorker worker2 = new BackgroundWorker();
         Randomizer rand;
         List<String> printList=new List<String>();
         public RandomizerHome()
@@ -33,28 +34,17 @@ namespace CSV_Randomizer.Views
             this.DataContext = this;
             worker1.DoWork += Worker1_DoWork;
             worker1.RunWorkerCompleted += Worker1_RunWorkerCompleted;
+            worker2.DoWork += Worker2_DoWork;
+            worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
             rand = new Randomizer(this);
         }
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             if(ListBox.Items.IsEmpty) { showMessage(ColorText.error, "Kein Inhalt vorhanden"); return; }
-            if (!worker1.IsBusy)
+            if (!worker2.IsBusy)
             {
-                //worker1.RunWorkerAsync();
-            }
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);      
-    saveFileDialog1.Title = "Save text Files";
-            saveFileDialog1.CheckFileExists = false;
-            saveFileDialog1.CheckPathExists = true;
-            saveFileDialog1.DefaultExt = "csv";
-            saveFileDialog1.Filter = "Csv Datei (*.csv)|*.csv|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
-            if (saveFileDialog1.ShowDialog() == true)
-            {
-                rand.writeCSV(saveFileDialog1.FileName, printList);
+                worker2.RunWorkerAsync();
             }
 
         }
@@ -120,6 +110,27 @@ namespace CSV_Randomizer.Views
                 {
                     ListBox.Items.Add(temp);
                 });
+            }
+
+        }
+        private void Worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            showMessage(ColorText.success, "Die CSV wurde erfolgreich gespeichert");
+        }
+        private void Worker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            saveFileDialog1.Title = "Save text Files";
+            saveFileDialog1.CheckFileExists = false;
+            saveFileDialog1.CheckPathExists = true;
+            saveFileDialog1.DefaultExt = "csv";
+            saveFileDialog1.Filter = "Csv Datei (*.csv)|*.csv|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            if (saveFileDialog1.ShowDialog() == true)
+            {
+                rand.writeCSV(saveFileDialog1.FileName, printList);
             }
 
         }

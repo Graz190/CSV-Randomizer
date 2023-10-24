@@ -29,7 +29,7 @@
         <Button Content="Reset" HorizontalAlignment="Left" Margin="660,348,0,0" VerticalAlignment="Top" Click="ResetButton_Click" Height="32" Width="104"/>
         
         <Button Content="Als CSV speichern" HorizontalAlignment="Left" Margin="533,348,0,0" VerticalAlignment="Top" Click="PrintButton_Click" Height="32" Width="112" />
-        <Slider HorizontalAlignment="Left" Margin="165,357,0,0" VerticalAlignment="Top" Maximum ="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="10" Name="SliderValue" Width="164"/>
+        <Slider HorizontalAlignment="Left" Margin="165,357,0,0" VerticalAlignment="Top" Minimum="1" Maximum ="99" TickFrequency="1" IsSnapToTickEnabled="True" Value="10" Name="SliderValue" Width="164"/>
         <TextBox HorizontalAlignment="Left" Margin="350,355,0,0" TextWrapping="Wrap" Text="{Binding ElementName=SliderValue, Path=Value, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="35" Height="25" TextChanged="TextBox_TextChanged"/>
         <Label Content="Bitte Prozent angeben" HorizontalAlignment="Left" Margin="390,353,0,0" VerticalAlignment="Top"/>
         <Label Content="Bitte hier Pfad zur CSV Datei angeben" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.925,0.354"/>
