@@ -60,6 +60,11 @@ namespace CSV_Randomizer.Views
                 worker1.RunWorkerAsync();
             }
         }
+        /// <summary>
+        /// Method for ResetButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             ListBox.Items.Clear();
@@ -67,6 +72,11 @@ namespace CSV_Randomizer.Views
             SliderValue.Value = 10;
             showMessage(ColorText.success, "Programm erfolgreich zurückgesetzt");
         }
+        /// <summary>
+        /// Display given Message with given font color on Mainview. Use ColorText for uniform colorcodes 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="message"></param>
         public void showMessage(Brush color, string message)
         {
             this.MessageInfo.Text = message;
@@ -88,9 +98,19 @@ namespace CSV_Randomizer.Views
                 MessageBox.Show("CSV-Randomizer Version 0.2.1\n\nMade with Love by Christian Fagherazzi", "Credits");
             }
         }
+        /// <summary>
+        /// Completed Method for Backgroundworker worker 1 displayed only a Message
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
             showMessage(ColorText.success, "Programm hat " + ListBox.Items.Count + " zufällig ausgewählt");
         }
+        /// <summary>
+        /// DoWork Method for Backgroundworker worker 1. It cleared previous ListBoxitems and fill it with new values from Randomizer.chooseRandom method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Worker1_DoWork(object sender, DoWorkEventArgs e)
         {
             int percentValue=0;
@@ -111,10 +131,20 @@ namespace CSV_Randomizer.Views
             }
 
         }
+        /// <summary>
+        /// Completed Method for Backgroundworker worker 2 displayed only a Message
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             showMessage(ColorText.success, "Die CSV wurde erfolgreich gespeichert");
         }
+        /// <summary>
+        /// DoWork Method for Backgroundworker worker 1. It prints value from ListBox into a CSV file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Worker2_DoWork(object sender, DoWorkEventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -132,6 +162,11 @@ namespace CSV_Randomizer.Views
             }
 
         }
+        /// <summary>
+        /// Open Filedialog and save result into openFilePathBox.Text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenFile(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -143,7 +178,11 @@ namespace CSV_Randomizer.Views
             if (openFileDialog.ShowDialog() == true) openFilePathBox.Text = openFileDialog.FileName;
 
         }
-
+        /// <summary>
+        /// save slider setting every time, when their is a TextChange in the SlideTextbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             PropertySetting.Save_Setting(Settingname.SliderValue,SliderValue.Value.ToString());
