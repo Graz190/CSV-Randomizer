@@ -76,7 +76,21 @@ namespace CSV_Randomizer.Views
             this.MessageInfo.TextAlignment = TextAlignment.Center;
             this.MessageInfo.Foreground = color;
         }
-
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(sender is Control ctrl))
+            {
+                return;
+            }
+            String name = ctrl.Name;
+            if (name == "Einstellung")
+            {
+            }
+            else if (name == "Credit")
+            {
+                MessageBox.Show("CSV-Randomizer Version 0.2.1\n\nMade with Love by Christian Fagherazzi", "Credits");
+            }
+        }
         private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
             showMessage(ColorText.success, "Programm hat " + ListBox.Items.Count + " zufällig ausgewählt");
         }

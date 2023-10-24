@@ -9,6 +9,13 @@
       Title="Randomizer - Home">
 
     <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Menü">
+                    <MenuItem Header="_Credit" Name="Credit" Click="MenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
         <TextBox HorizontalAlignment="Center" Margin="0,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="728" Height="31" Name="MessageInfo" BorderThickness="0" IsReadOnly="True"/>
         <Button Content="Start" HorizontalAlignment="Left" Margin="36,348,0,0" VerticalAlignment="Top" Click="StartButton_Click" Height="32" Width="112"/>
         <Button Content="Reset" HorizontalAlignment="Left" Margin="660,348,0,0" VerticalAlignment="Top" Click="ResetButton_Click" Height="32" Width="104"/>
