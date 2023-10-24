@@ -2,20 +2,10 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CSV_Randomizer.Views
 {
@@ -27,7 +17,7 @@ namespace CSV_Randomizer.Views
         private readonly BackgroundWorker worker1 = new BackgroundWorker();
         private readonly BackgroundWorker worker2 = new BackgroundWorker();
         Randomizer rand;
-        List<String> printList=new List<String>();
+        List<string> printList=new List<string>();
         public RandomizerHome()
         {
             InitializeComponent();
@@ -38,7 +28,11 @@ namespace CSV_Randomizer.Views
             worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
             rand = new Randomizer(this);
         }
-
+        /// <summary>
+        /// Method for PrintButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             if(ListBox.Items.IsEmpty) { showMessage(ColorText.error, "Kein Inhalt vorhanden"); return; }
@@ -48,7 +42,11 @@ namespace CSV_Randomizer.Views
             }
 
         }
-
+        /// <summary>
+        /// Method for StartButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             if(String.IsNullOrEmpty(openFilePathBox.Text))
