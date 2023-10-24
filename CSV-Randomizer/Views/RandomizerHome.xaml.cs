@@ -110,5 +110,9 @@ namespace CSV_Randomizer.Views
 
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

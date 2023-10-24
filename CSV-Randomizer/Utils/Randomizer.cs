@@ -62,15 +62,11 @@ namespace CSV_Randomizer.Utils
             {
                 using (var file = File.CreateText(path))
                 {
-                    foreach (var arr in listString)
+                    for (int i=0;i<listString.Count;i++)
                     {
-                        if (String.IsNullOrEmpty(arr)) continue;
-                        file.Write(arr[0]);
-                        for (int i = 1; i < arr.Length; i++)
-                        {
-                            file.Write(',');
-                            file.Write(arr[i]);
-                        }
+                        file.Write(listString[i]);
+                        if(i<listString.Count)file.Write(',');
+
                         file.WriteLine();
                     }
                 }
