@@ -38,6 +38,7 @@ namespace CSV_Randomizer.Views
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
+            if(ListBox.Items.IsEmpty) { showMessage(ColorText.error, "Kein Inhalt vorhanden"); return; }
             if (!worker1.IsBusy)
             {
                 //worker1.RunWorkerAsync();
@@ -60,6 +61,11 @@ namespace CSV_Randomizer.Views
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            if(String.IsNullOrEmpty(openFilePathBox.Text))
+            {
+                showMessage(ColorText.error, "Bitte einen gütigen Dateipfad angeben.");
+                return;
+            }  
             PropertySetting.Save_Setting(Settingname.FilePath, openFilePathBox.Text);
             if (!worker1.IsBusy)
             {
@@ -69,6 +75,9 @@ namespace CSV_Randomizer.Views
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             ListBox.Items.Clear();
+            openFilePathBox.Text = "";
+            SliderValue.Value = 10;
+            showMessage(ColorText.success, "Programm erfolgreich zurückgesetzt");
         }
         public void showMessage(Brush color, string message)
         {
