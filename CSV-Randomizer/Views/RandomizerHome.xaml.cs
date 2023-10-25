@@ -95,7 +95,7 @@ namespace CSV_Randomizer.Views
             }
             else if (name == "Credit")
             {
-                MessageBox.Show("CSV-Randomizer Version 0.2.1\n\nMade with Love by Christian Fagherazzi", "Credits");
+                MessageBox.Show("CSV-Randomizer Version 1.0.0\n\nMade with Love by Christian Fagherazzi", "Credits");
             }
         }
         /// <summary>
@@ -149,7 +149,7 @@ namespace CSV_Randomizer.Views
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            saveFileDialog1.Title = "Save text Files";
+            saveFileDialog1.Title = "Bitte Speicherort für CSV-Datei angeben";
             saveFileDialog1.CheckFileExists = false;
             saveFileDialog1.CheckPathExists = true;
             saveFileDialog1.DefaultExt = "csv";
