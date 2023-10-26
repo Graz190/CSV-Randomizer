@@ -117,17 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="enterPercent" xml:space="preserve">
+    <value>Please enter percent</value>
+  </data>
   <data name="errorEmpty" xml:space="preserve">
     <value>No content present</value>
   </data>
   <data name="invalidPath" xml:space="preserve">
     <value>Please provide a valid file path</value>
   </data>
+  <data name="labelPath" xml:space="preserve">
+    <value>Please enter the path to the CSV file here</value>
+  </data>
   <data name="loading" xml:space="preserve">
     <value>Please wait, program randomly selects samples</value>
   </data>
+  <data name="menu" xml:space="preserve">
+    <value>_Menu</value>
+  </data>
+  <data name="openFile" xml:space="preserve">
+    <value>open</value>
+  </data>
   <data name="reset" xml:space="preserve">
     <value>Program reset successfully</value>
+  </data>
+  <data name="resetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="saveAsCsv" xml:space="preserve">
+    <value>Save as CSV</value>
+  </data>
+  <data name="startButton" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="successCsv" xml:space="preserve">
     <value>The CSV was saved successfully</value>

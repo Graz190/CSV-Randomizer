@@ -95,7 +95,7 @@ namespace CSV_Randomizer.Views
             }
             else if (name == "Credit")
             {
-                MessageBox.Show("CSV-Randomizer Version 1.0.0\n\nMade with Love by Christian Fagherazzi", "Credits");
+                MessageBox.Show("CSV-Randomizer Version 1.1.0\n\nMade with Love by Christian Fagherazzi", "Credits");
             }
         }
         /// <summary>

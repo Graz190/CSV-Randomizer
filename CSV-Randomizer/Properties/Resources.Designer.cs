@@ -22,7 +22,7 @@ namespace CSV_Randomizer.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace CSV_Randomizer.Properties {
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSV_Randomizer.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace CSV_Randomizer.Properties {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,16 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string errorEmpty {
+        public static string enterPercent {
+            get {
+                return ResourceManager.GetString("enterPercent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        public static string errorEmpty {
             get {
                 return ResourceManager.GetString("errorEmpty", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string invalidPath {
+        public static string invalidPath {
             get {
                 return ResourceManager.GetString("invalidPath", resourceCulture);
             }
@@ -81,7 +90,16 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string loading {
+        public static string labelPath {
+            get {
+                return ResourceManager.GetString("labelPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        public static string loading {
             get {
                 return ResourceManager.GetString("loading", resourceCulture);
             }
@@ -90,7 +108,25 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string reset {
+        public static string menu {
+            get {
+                return ResourceManager.GetString("menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        public static string openFile {
+            get {
+                return ResourceManager.GetString("openFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        public static string reset {
             get {
                 return ResourceManager.GetString("reset", resourceCulture);
             }
@@ -99,7 +135,34 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string successCsv {
+        public static string resetButton {
+            get {
+                return ResourceManager.GetString("resetButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        public static string saveAsCsv {
+            get {
+                return ResourceManager.GetString("saveAsCsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        public static string startButton {
+            get {
+                return ResourceManager.GetString("startButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        public static string successCsv {
             get {
                 return ResourceManager.GetString("successCsv", resourceCulture);
             }
@@ -108,7 +171,7 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string successProgram1 {
+        public static string successProgram1 {
             get {
                 return ResourceManager.GetString("successProgram1", resourceCulture);
             }
@@ -117,7 +180,7 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string successProgram2 {
+        public static string successProgram2 {
             get {
                 return ResourceManager.GetString("successProgram2", resourceCulture);
             }
@@ -126,7 +189,7 @@ namespace CSV_Randomizer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
-        internal static string titleSaveFile {
+        public static string titleSaveFile {
             get {
                 return ResourceManager.GetString("titleSaveFile", resourceCulture);
             }
