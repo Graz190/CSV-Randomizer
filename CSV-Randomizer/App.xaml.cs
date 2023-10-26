@@ -17,7 +17,13 @@ namespace CSV_Randomizer
         App()
         {
             CultureInfo ci = CultureInfo.InstalledUICulture;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(ci.Name);
+            if (!ci.Name.Equals("en")&&!ci.Name.Equals("de-DE")) {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            }
+            else
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(ci.Name);
+            }
         }
     }
 }
