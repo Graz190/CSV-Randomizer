@@ -18,7 +18,7 @@ namespace CSV_Randomizer.Utils
             RandomizerHome = home;
         }
 
-        public List<String> loadCSV()
+        private List<String> loadCSV()
         {
             List<String> list = new List<String>();
             try { 
@@ -38,6 +38,11 @@ namespace CSV_Randomizer.Utils
             }
             return list;
         }
+        /// <summary>
+        /// Main Method TODO
+        /// </summary>
+        /// <param name="percent">choosen percent</param>
+        /// <returns>sample as a String list</returns>
         public List<String> chooseRandom(int percent)
         {
             double choosedPercent = (double)percent / 100;
@@ -56,6 +61,11 @@ namespace CSV_Randomizer.Utils
             }
             return randomList;
         }
+        /// <summary>
+        /// Writes sample in a CSV-file
+        /// </summary>
+        /// <param name="path">Outputfolder Path</param>
+        /// <param name="listString">Sample list</param>
         public void writeCSV(String path, List<String> listString)
         {
             try

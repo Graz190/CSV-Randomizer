@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="errorEmpty" xml:space="preserve">
-    <value />
+    <value>No content present</value>
   </data>
   <data name="invalidPath" xml:space="preserve">
-    <value />
+    <value>Please provide a valid file path</value>
   </data>
   <data name="loading" xml:space="preserve">
-    <value />
+    <value>Please wait, program randomly selects samples</value>
   </data>
   <data name="reset" xml:space="preserve">
-    <value />
+    <value>Program reset successfully</value>
   </data>
   <data name="successCsv" xml:space="preserve">
-    <value />
+    <value>The CSV was saved successfully</value>
   </data>
   <data name="successProgram1" xml:space="preserve">
-    <value />
+    <value>Program chooses </value>
   </data>
   <data name="successProgram2" xml:space="preserve">
-    <value />
+    <value> randomly as a sample</value>
   </data>
   <data name="titleSaveFile" xml:space="preserve">
-    <value />
+    <value>Please specify location for CSV file</value>
   </data>
 </root>

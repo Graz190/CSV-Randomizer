@@ -35,7 +35,7 @@ namespace CSV_Randomizer.Views
         /// <param name="e"></param>
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
-            if(ListBox.Items.IsEmpty) { showMessage(ColorText.error, "Kein Inhalt vorhanden"); return; }
+            if(ListBox.Items.IsEmpty) { showMessage(ColorText.error, Properties.Resources.errorEmpty); return; }
             if (!worker2.IsBusy)
             {
                 worker2.RunWorkerAsync();
@@ -51,7 +51,7 @@ namespace CSV_Randomizer.Views
         {
             if(String.IsNullOrEmpty(openFilePathBox.Text))
             {
-                showMessage(ColorText.error, "Bitte einen gütigen Dateipfad angeben.");
+                showMessage(ColorText.error, Properties.Resources.invalidPath);
                 return;
             }  
             PropertySetting.Save_Setting(Settingname.FilePath, openFilePathBox.Text);
@@ -70,7 +70,7 @@ namespace CSV_Randomizer.Views
             ListBox.Items.Clear();
             openFilePathBox.Text = "";
             SliderValue.Value = 10;
-            showMessage(ColorText.success, "Programm erfolgreich zurückgesetzt");
+            showMessage(ColorText.success, Properties.Resources.reset);
         }
         /// <summary>
         /// Display given Message with given font color on Mainview. Use ColorText for uniform colorcodes 
@@ -90,7 +90,7 @@ namespace CSV_Randomizer.Views
                 return;
             }
             String name = ctrl.Name;
-            if (name == "Einstellung")
+            if (name == "Sprache")
             {
             }
             else if (name == "Credit")
@@ -104,7 +104,7 @@ namespace CSV_Randomizer.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
-            showMessage(ColorText.success, "Programm hat " + ListBox.Items.Count + " zufällig ausgewählt");
+            showMessage(ColorText.success, Properties.Resources.successProgram1+ ListBox.Items.Count + Properties.Resources.successProgram2);
         }
         /// <summary>
         /// DoWork Method for Backgroundworker worker 1. It cleared previous ListBoxitems and fill it with new values from Randomizer.chooseRandom method
@@ -117,7 +117,7 @@ namespace CSV_Randomizer.Views
             Dispatcher.Invoke(() =>
             {
                 ListBox.Items.Clear();
-                showMessage(ColorText.loading, "Bitte warten Programm wählt zufällig eine Zahl aus");
+                showMessage(ColorText.loading, Properties.Resources.loading);
             });
             percentValue = int.Parse(PropertySetting.Read_Setting(Settingname.SliderValue));
             printList.Clear();
@@ -138,7 +138,7 @@ namespace CSV_Randomizer.Views
         /// <param name="e"></param>
         private void Worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            showMessage(ColorText.success, "Die CSV wurde erfolgreich gespeichert");
+            showMessage(ColorText.success, Properties.Resources.successCsv);
         }
         /// <summary>
         /// DoWork Method for Backgroundworker worker 1. It prints value from ListBox into a CSV file
@@ -149,11 +149,11 @@ namespace CSV_Randomizer.Views
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            saveFileDialog1.Title = "Bitte Speicherort für CSV-Datei angeben";
+            saveFileDialog1.Title = Properties.Resources.titleSaveFile;
             saveFileDialog1.CheckFileExists = false;
             saveFileDialog1.CheckPathExists = true;
             saveFileDialog1.DefaultExt = "csv";
-            saveFileDialog1.Filter = "Csv Datei (*.csv)|*.csv|All files (*.*)|*.*";
+            saveFileDialog1.Filter = "Csv Datei (*.csv)|*.csv|Alle Dateien (*.*)|*.*";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
             if (saveFileDialog1.ShowDialog() == true)
@@ -187,5 +187,6 @@ namespace CSV_Randomizer.Views
         {
             PropertySetting.Save_Setting(Settingname.SliderValue,SliderValue.Value.ToString());
         }
+
     }
 }

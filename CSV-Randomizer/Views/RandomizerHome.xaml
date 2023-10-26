@@ -26,7 +26,7 @@
         <ListBox Name="ListBox" Margin="36,166,36,100"/>
         
         <Button Content="Start" HorizontalAlignment="Left" Margin="36,348,0,0" VerticalAlignment="Top" Click="StartButton_Click" Height="32" Width="112"/>
-        <Button Content="Reset" HorizontalAlignment="Left" Margin="660,348,0,0" VerticalAlignment="Top" Click="ResetButton_Click" Height="32" Width="104"/>
+        <Button Content="Zurücksetzen" HorizontalAlignment="Left" Margin="660,348,0,0" VerticalAlignment="Top" Click="ResetButton_Click" Height="32" Width="104"/>
         
         <Button Content="Als CSV speichern" HorizontalAlignment="Left" Margin="533,348,0,0" VerticalAlignment="Top" Click="PrintButton_Click" Height="32" Width="112" />
         <Slider HorizontalAlignment="Left" Margin="165,357,0,0" VerticalAlignment="Top" Minimum="1" Maximum ="99" TickFrequency="1" IsSnapToTickEnabled="True" Value="10" Name="SliderValue" Width="164"/>
