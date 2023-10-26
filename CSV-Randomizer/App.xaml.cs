@@ -11,12 +11,13 @@ namespace CSV_Randomizer
         App()
         {
             CultureInfo ci = CultureInfo.InstalledUICulture;
-            if (!ci.Name.Equals("en")&&!ci.Name.StartsWith("de-")&&!ci.Name.StartsWith("en-")) {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            if (!ci.Name.Equals("en") && !ci.Name.StartsWith("de-") && !ci.Name.StartsWith("en-"))
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             }
             else
             {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(ci.Name);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(ci.Name);
             }
         }
     }

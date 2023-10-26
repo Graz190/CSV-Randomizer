@@ -10,6 +10,7 @@
       Title="Randomizer - Home">
 
     <Grid>
+        <StackPanel>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="{x:Static p:Resources.menu}">
@@ -17,24 +18,30 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <TextBox HorizontalAlignment="Center" Margin="0,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="728" Height="45" Name="MessageInfo" BorderThickness="0" IsReadOnly="True">
-            <TextBox.Background>
-                <ImageBrush/>
-            </TextBox.Background>
-        </TextBox>
-        <Button Content="{x:Static p:Resources.openFile}" HorizontalAlignment="Left" Margin="681,110,0,0" VerticalAlignment="Top" Click="OpenFile" Height="35" Width="83"/>
-        <TextBox Name="openFilePathBox" HorizontalAlignment="Left" Margin="36,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="627" Height="35" IsReadOnly="True"/>
-        <ListBox Name="ListBox" Margin="36,166,36,100"/>
 
-        <Button Content="{x:Static p:Resources.startButton}" HorizontalAlignment="Left" Margin="36,348,0,0" VerticalAlignment="Top" Click="StartButton_Click" Height="32" Width="112"/>
-        <Button Content="{x:Static p:Resources.resetButton}" HorizontalAlignment="Left" Margin="660,348,0,0" VerticalAlignment="Top" Click="ResetButton_Click" Height="32" Width="104"/>
 
-        <Button Content="{x:Static p:Resources.saveAsCsv}" HorizontalAlignment="Left" Margin="533,348,0,0" VerticalAlignment="Top" Click="PrintButton_Click" Height="32" Width="112" />
-        <Slider HorizontalAlignment="Left" Margin="165,357,0,0" VerticalAlignment="Top" Minimum="1" Maximum ="99" TickFrequency="1" IsSnapToTickEnabled="True" Value="10" Name="SliderValue" Width="164"/>
-        <TextBox HorizontalAlignment="Left" Margin="350,355,0,0" TextWrapping="Wrap" Text="{Binding ElementName=SliderValue, Path=Value, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="35" Height="25" TextChanged="TextBox_TextChanged"/>
-        <Label Content="{x:Static p:Resources.enterPercent}" HorizontalAlignment="Left" Margin="390,353,0,0" VerticalAlignment="Top"/>
-        <Label Content="{x:Static p:Resources.labelPath}" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.925,0.354"/>
+        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="728" Height="65" Name="MessageInfo" BorderThickness="0" IsReadOnly="True">
+                <TextBox.Background>
+                    <ImageBrush/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="{x:Static p:Resources.labelPath}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="openFilePathBox" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="627" Height="35" IsReadOnly="True"/>
+                <Button Content="{x:Static p:Resources.openFile}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenFile" Height="35" Width="83"/>
+            </StackPanel>
+            <ListBox Name="ListBox" Margin="10" Height="150"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="{x:Static p:Resources.startButton}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="StartButton_Click" Height="32" Width="112"/>
+                <Button Content="{x:Static p:Resources.saveAsCsv}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="PrintButton_Click" Height="32" Width="112" />
+                <Slider HorizontalAlignment="Left" Margin="10,18,10,10" VerticalAlignment="Top" Minimum="1" Maximum ="99" TickFrequency="1" IsSnapToTickEnabled="True" Value="10" Name="SliderValue" Width="164"/>
+                <TextBox HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="{Binding ElementName=SliderValue, Path=Value, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="35" Height="25" TextChanged="TextBox_TextChanged"/>
+                <Label Content="{x:Static p:Resources.enterPercent}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
+                <Button Content="{x:Static p:Resources.resetButton}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ResetButton_Click" Height="32" Width="104"/>
+            </StackPanel>
+        </StackPanel>
 
     </Grid>
 </Page>
