@@ -1,4 +1,4 @@
-# CSV-Randomizer 1.1.0
+# CSV-Randomizer 1.1.1
 Chooses a Random Number from a CSV-file
 
 ### Feature
