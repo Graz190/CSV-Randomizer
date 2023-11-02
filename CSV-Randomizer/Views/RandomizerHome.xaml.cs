@@ -35,7 +35,7 @@ namespace CSV_Randomizer.Views
         /// <param name="e"></param>
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
-            if(ListBox.Items.IsEmpty) { showMessage(ColorText.error, Properties.Resources.errorEmpty); return; }
+            if(ListBox.Items.IsEmpty) { ShowMessage(ColorText.error, Properties.Resources.errorEmpty); return; }
             if (!worker2.IsBusy)
             {
                 worker2.RunWorkerAsync();
@@ -51,7 +51,7 @@ namespace CSV_Randomizer.Views
         {
             if(String.IsNullOrEmpty(openFilePathBox.Text))
             {
-                showMessage(ColorText.error, Properties.Resources.invalidPath);
+                ShowMessage(ColorText.error, Properties.Resources.invalidPath);
                 return;
             }  
             PropertySetting.Save_Setting(Settingname.FilePath, openFilePathBox.Text);
@@ -70,14 +70,14 @@ namespace CSV_Randomizer.Views
             ListBox.Items.Clear();
             openFilePathBox.Text = "";
             SliderValue.Value = 10;
-            showMessage(ColorText.success, Properties.Resources.reset);
+            ShowMessage(ColorText.success, Properties.Resources.reset);
         }
         /// <summary>
         /// Display given Message with given font color on Mainview. Use ColorText for uniform colorcodes 
         /// </summary>
         /// <param name="color"></param>
         /// <param name="message"></param>
-        public void showMessage(Brush color, string message)
+        public void ShowMessage(Brush color, string message)
         {
             this.MessageInfo.Text = message;
             this.MessageInfo.TextAlignment = TextAlignment.Center;
@@ -95,7 +95,7 @@ namespace CSV_Randomizer.Views
             }
             else if (name == "Credit")
             {
-                MessageBox.Show("CSV-Randomizer Version 1.1.1\n\nMade with Love by Christian Fagherazzi", "Credits");
+                MessageBox.Show("CSV-Randomizer Version 1.1.2\n\nMade with Love by Christian Fagherazzi", "Credits");
             }
         }
         /// <summary>
@@ -104,7 +104,7 @@ namespace CSV_Randomizer.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
-            showMessage(ColorText.success, Properties.Resources.successProgram1+ ListBox.Items.Count + Properties.Resources.successProgram2);
+            ShowMessage(ColorText.success, Properties.Resources.successProgram1+ ListBox.Items.Count + Properties.Resources.successProgram2);
         }
         /// <summary>
         /// DoWork Method for Backgroundworker worker 1. It cleared previous ListBoxitems and fill it with new values from Randomizer.chooseRandom method
@@ -117,11 +117,11 @@ namespace CSV_Randomizer.Views
             Dispatcher.Invoke(() =>
             {
                 ListBox.Items.Clear();
-                showMessage(ColorText.loading, Properties.Resources.loading);
+                ShowMessage(ColorText.loading, Properties.Resources.loading);
             });
             percentValue = int.Parse(PropertySetting.Read_Setting(Settingname.SliderValue));
             printList.Clear();
-            printList = rand.chooseRandom(percentValue);
+            printList = rand.ChooseRandom(percentValue);
             foreach (String temp in printList)
             {
                 Dispatcher.Invoke(() =>
@@ -138,7 +138,7 @@ namespace CSV_Randomizer.Views
         /// <param name="e"></param>
         private void Worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            showMessage(ColorText.success, Properties.Resources.successCsv);
+            ShowMessage(ColorText.success, Properties.Resources.successCsv);
         }
         /// <summary>
         /// DoWork Method for Backgroundworker worker 1. It prints value from ListBox into a CSV file
@@ -158,7 +158,7 @@ namespace CSV_Randomizer.Views
             saveFileDialog1.RestoreDirectory = true;
             if (saveFileDialog1.ShowDialog() == true)
             {
-                rand.writeCSV(saveFileDialog1.FileName, printList);
+                rand.WriteCSV(saveFileDialog1.FileName, printList);
             }
 
         }

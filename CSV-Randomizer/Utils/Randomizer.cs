@@ -2,23 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
-using System.Windows.Shapes;
 
 namespace CSV_Randomizer.Utils
 {
     internal class Randomizer
     {
         RandomizerHome RandomizerHome { get; set; }
-        static Random rnd = new Random();
+        static readonly Random rnd = new Random();
         public Randomizer(RandomizerHome home) {
             RandomizerHome = home;
         }
 
-        private List<String> loadCSV()
+        private List<String> LoadCSV()
         {
             List<String> list = new List<String>();
             try { 
@@ -33,7 +28,7 @@ namespace CSV_Randomizer.Utils
             {
                 RandomizerHome.Dispatcher.Invoke(() =>
                 {
-                    RandomizerHome.showMessage(ColorText.error, ex.Message);
+                    RandomizerHome.ShowMessage(ColorText.error, ex.Message);
                 });
             }
             return list;
@@ -43,10 +38,10 @@ namespace CSV_Randomizer.Utils
         /// </summary>
         /// <param name="percent">choosen percent</param>
         /// <returns>sample as a String list</returns>
-        public List<String> chooseRandom(int percent)
+        public List<String> ChooseRandom(int percent)
         {
             double choosedPercent = (double)percent / 100;
-            List<String> csvList = loadCSV();
+            List<String> csvList = LoadCSV();
             List<String> randomList = new List<String>();
             int listSize = csvList.Count;
             int cycleCount = (int)Math.Round((double)(choosedPercent * listSize - 1));
@@ -66,7 +61,7 @@ namespace CSV_Randomizer.Utils
         /// </summary>
         /// <param name="path">Outputfolder Path</param>
         /// <param name="listString">Sample list</param>
-        public void writeCSV(String path, List<String> listString)
+        public void WriteCSV(String path, List<String> listString)
         {
             try
             {
@@ -85,7 +80,7 @@ namespace CSV_Randomizer.Utils
             {
                 RandomizerHome.Dispatcher.Invoke(() =>
                 {
-                    RandomizerHome.showMessage(ColorText.error, ex.Message);
+                    RandomizerHome.ShowMessage(ColorText.error, ex.Message);
                 });
             }
         }
